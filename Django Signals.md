@@ -1,5 +1,5 @@
-Question 1: By default are django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
-- Django Signals are executed synchronously
+**Question 1:** By default are django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
+- **Django Signals are executed synchronously**
 ``` 
 import time 
 from django.db.models.signals import post_save
@@ -16,8 +16,10 @@ user = User.objects.create(username='test_user')
 print("User created.") 
 ```
 
-Question 2: Do django signals run in the same thread as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
-- Yes
+</br>
+
+**Question 2:** Do django signals run in the same thread as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
+- **Yes**
 ```
 import threading
 from django.db.models.signals import post_save
@@ -32,8 +34,10 @@ print("Caller thread ID:", threading.get_ident())
 user = User.objects.create(username='test_user')
 ```
 
-Question 3: By default do django signals run in the same database transaction as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
-- Yes
+</br>
+
+**Question 3:** By default do django signals run in the same database transaction as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
+- **Yes**
 ```
 from django.db import transaction
 from django.db.models.signals import post_save
